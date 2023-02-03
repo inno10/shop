@@ -22,7 +22,7 @@ class ItemRepositoryTest {
 
     @Test
     @DisplayName("상품 저장 테스트")
-    public void createItemList(){
+    public void createItemTest(){
         Item item = new Item();
         item.setItemName("테스트 상품");
         item.setPrice(10000);
@@ -35,6 +35,20 @@ class ItemRepositoryTest {
         System.out.println(savedItem.toString());
     }
 
+    @Test
+    @DisplayName("상품 저장 테스트")
+    public void createItemList() {
+        for (int i = 1; i <= 10; i++) {
+            Item item = new Item();
+            item.setItemName("테스트 상품" + i);
+            item.setPrice(10000 + i);
+            item.setItemDetail("테스트 상품 상세 설명" + i);
+            item.setItemSellStatus(ItemSellStatus.SELL);
+            item.setStockNumber(100);
+            item.setUdtTime(LocalDateTime.now());
+            Item savedItem = itemRepository.save(item);
+        }
+    }
     @Test
     @DisplayName("상품명 조회 테스트")
     public void findByItemNameTest(){
@@ -54,4 +68,16 @@ class ItemRepositoryTest {
             System.out.println(item.toString());
         }
     }
+
+    @Test
+    @DisplayName("가격 내림차순 조회 테스트")
+    public void findByPriceLessThanOrderByPriceDesc(){
+        this.createItemList();
+        List<Item> itemList =
+                itemRepository.findByPriceLessThanOrderByPriceDesc(10005);
+        for(Item item : itemList){
+            System.out.println(item.toString());
+        }
+    }
+
 }
