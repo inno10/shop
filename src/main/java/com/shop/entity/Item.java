@@ -40,7 +40,7 @@ public class Item {
 
     //상품 판매 상태
     @Enumerated(EnumType.STRING)
-    private ItemSellStatus itemSellStatus;1
+    private ItemSellStatus itemSellStatus;
 
     //등록 시간
     private LocalDateTime regTime;
