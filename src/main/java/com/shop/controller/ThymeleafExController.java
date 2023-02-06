@@ -18,8 +18,8 @@ public class ThymeleafExController {
         return "thymeleafEx/thymeleafEx01";
     }
 
-    @GetMapping(value = "/ex021")
-    public String thymleafExample02(Model model) {
+    @GetMapping(value = "/ex02")
+    public String thymeleafExample02(Model model) {
         ItemDto itemDto = new ItemDto();
         itemDto.setItemDetail("상품 상세 설명");
         itemDto.setItemName("테스트 상품1");
