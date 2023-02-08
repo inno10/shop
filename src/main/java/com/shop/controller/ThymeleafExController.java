@@ -31,6 +31,7 @@ public class ThymeleafExController {
         model.addAttribute("itemDto", itemDto);
         return "thymeleafEx/thymeleafEx02";
     }
+
     //th:each 상품 리스트 출력
     @GetMapping(value = "/ex03")
     public String thymeleafExample03(Model model) {
@@ -52,15 +53,15 @@ public class ThymeleafExController {
     }
 
     //th:if, th: unless 조건문 처리
-    @GetMapping(value="/ex04")
-    public String thymeleafExample04(Model model){
+    @GetMapping(value = "/ex04")
+    public String thymeleafExample04(Model model) {
         List<ItemDto> itemDtoList = new ArrayList<>();
 
-        for(int i = 1; i <= 10; i++){
+        for (int i = 1; i <= 10; i++) {
             ItemDto itemDto = new ItemDto();
-            itemDto.setItemDetail("상품 상세 설명"+ i);
+            itemDto.setItemDetail("상품 상세 설명" + i);
             itemDto.setItemName("테스트 상품" + i);
-            itemDto.setPrice(1000* i);
+            itemDto.setPrice(1000 * i);
             itemDto.setRegTime(LocalDateTime.now());
 
             itemDtoList.add(itemDto);
@@ -70,15 +71,16 @@ public class ThymeleafExController {
         return "thymeleafEx/thymeleafEx04";
     }
 
-    @GetMapping(value="/ex05")
-    public String thymeleafExample05(Model model){
+    //th:switch, th:case 조건문 처리
+    @GetMapping(value = "/ex05")
+    public String thymeleafExample05(Model model) {
         List<ItemDto> itemDtoList = new ArrayList<>();
 
-        for(int i = 1; i <= 10; i++){
+        for (int i = 1; i <= 10; i++) {
             ItemDto itemDto = new ItemDto();
-            itemDto.setItemDetail("상품 상세 설명"+ i);
+            itemDto.setItemDetail("상품 상세 설명" + i);
             itemDto.setItemName("테스트 상품" + i);
-            itemDto.setPrice(1000* i);
+            itemDto.setPrice(1000 * i);
             itemDto.setRegTime(LocalDateTime.now());
 
             itemDtoList.add(itemDto);
@@ -86,6 +88,12 @@ public class ThymeleafExController {
 
         model.addAttribute("itemDtoList", itemDtoList);
         return "thymeleafEx/thymeleafEx04";
+    }
+
+    //th:href 링크 처리
+    @GetMapping(value="/ex06")
+    public String thymeleafExample06(){
+        return "thymeleafEx/thymeleafEx06";
     }
 }
 
