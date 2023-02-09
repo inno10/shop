@@ -7,6 +7,7 @@
 
     <!-- CSS only -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- css와 layout을 연결-->
     <link th:href="@{/css/layout1.css}" rel="stylesheet">
 
     <!-- JS, Popper.js, and jQuery -->
@@ -22,6 +23,7 @@
 
 <div th:replace="fragments/header::header"></div>
 
+<!-- css 적용-->
 <div layout:fragment="content" class="content">
 
 </div>
