@@ -96,19 +96,25 @@ public class ThymeleafExController {
         return "thymeleafEx/thymeleafEx06";
     }
 
-    // th:href parameter 전달 전 페이지
+    //th:href parameter 전달 전 페이지
     @GetMapping(value = "/ex07")
     public String thymeleafExample07() {
         return "thymeleafEx/thymeleafEx07";
     }
 
-    // th:href parameter 전달 후 페이지
+    //th:href parameter 전달 후 페이지
     @GetMapping(value = "/ex08")
     public String thymeleafExample08(String param1, String param2, Model model) {
         model.addAttribute("param1", param1);
         model.addAttribute("param2", param2);
 
         return "thymeleafEx/thymeleafEx08";
+    }
+
+    //Thymeleaf 예제 페이지
+    @GetMapping(value ="/ex09")
+    public String thymeleafExample09(){
+        return "thymeleafEx/thymeleafEx09";
     }
 }
 
