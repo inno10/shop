@@ -13,5 +13,5 @@ public class MemberFormDto {
 
     private String password;
 
-    private String address
+    private String address;
 }
