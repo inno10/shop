@@ -32,6 +32,7 @@ public class Member {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    //멤버 등록 메서드
     public static Member createMember(MemberFormDto memberFormDto, PasswordEncoder passwordEncoder){
         Member member = new Member();
         member.setName(memberFormDto.getName());
