@@ -29,16 +29,20 @@ public class MemberController {
 
     //검증 실패시 에러 메시지 받음 (검사 후 결과는 bindingResult에 담기며, 에러가 있으면 회원가입 페이지로 이동)
     @PostMapping(value = "/new")
-    public String newMember(@Valid MemberFormDto memberFormDto, BindingResult bindingResult, Model model) {
-        if (bindingResult.hasErrors()) {
+    public String newMember(@Valid MemberFormDto memberFormDto, BindingResult bindingResult, Model model){
+
+        if(bindingResult.hasErrors()){
             return "member/memberForm";
         }
+
         try {
             Member member = Member.createMember(memberFormDto, passwordEncoder);
-        } catch (IllegalStateException e) {
+            memberService.saveMember(member);
+        } catch (IllegalStateException e){
             model.addAttribute("errorMessage", e.getMessage());
             return "member/memberForm";
         }
+
         return "redirect:/";
     }
 
