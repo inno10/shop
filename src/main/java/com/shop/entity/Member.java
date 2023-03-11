@@ -9,14 +9,14 @@ import lombok.ToString;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Entity
-@Table(name="member")
+@Table(name = "member")
 @Getter
 @Setter
 @ToString
 public class Member {
 
     @Id
-    @Column(name="member_id")
+    @Column(name = "member_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
@@ -33,7 +33,7 @@ public class Member {
     private Role role;
 
     //멤버 등록 메서드
-    public static Member createMember(MemberFormDto memberFormDto, PasswordEncoder passwordEncoder){
+    public static Member createMember(MemberFormDto memberFormDto, PasswordEncoder passwordEncoder) {
         Member member = new Member();
         member.setName(memberFormDto.getName());
         member.setEmail(memberFormDto.getEmail());

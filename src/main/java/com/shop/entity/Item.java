@@ -9,7 +9,7 @@ import lombok.ToString;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name="item")
+@Table(name = "item")
 @Getter
 @Setter
 @ToString
@@ -17,7 +17,7 @@ public class Item {
 
     //상품 코드
     @Id
-    @Column(name="item_id")
+    @Column(name = "item_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
@@ -26,7 +26,7 @@ public class Item {
     private String itemName;
 
     //가격
-    @Column(name="price", nullable = false)
+    @Column(name = "price", nullable = false)
     private int price;
 
     //재고 수량
