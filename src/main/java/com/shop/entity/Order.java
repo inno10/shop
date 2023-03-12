@@ -32,7 +32,7 @@ public class Order {
 
     /*주문 상품 엔티티와 일대다 매핑
     하나의 주문이 여러개의 주문 상품을 가지기 떄문에 List 타입으로 매핑*/
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderItem> orderItems = new ArrayList<>();
 
     private LocalDateTime regTime;
