@@ -27,14 +27,14 @@ public class MemberTest {
     @Test
     @DisplayName("Auditing 테스트")
     @WithMockUser(username = "gildong", roles = "USER")
-    public void auditingTest(){
+    public void auditingTest() {
         Member newMember = new Member();
         memberRepository.save(newMember);
 
         em.flush();
         em.clear();
 
-        Member member =memberRepository.findById(newMember.getId())
+        Member member = memberRepository.findById(newMember.getId())
                 .orElseThrow(EntityNotFoundException::new);
 
         System.out.println("register time : " + member.getRegtime());
